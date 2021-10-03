@@ -1,7 +1,7 @@
 {
    "0":{
       "id":0,
-      "description":"My NFT",
+      "description":"My first NFT",
       "external_url":"https://forum.openzeppelin.com/t/create-an-nft-and-deploy-to-a-public-testnet-using-truffle/2961",
       "imageUrl":"https://twemoji.maxcdn.com/svg/1f40e.svg",
       "name":"My NFT 0",
