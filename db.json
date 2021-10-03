@@ -1,6 +1,36 @@
-{
-   "title":"Lazy Cat",
-   "name":"Lazy Jack Cat",
-   "type":"object",
-   "imageUrl":"https://ipfs.io/ipfs/QmS2dg3kSD2DCbW3MFjV72YgekmapYLuj7NYqZSvpsKN3f"
+pragma solidity 0.5.1;
+
+contract MyConstract {
+    // Person[] public people;
+    mapping (uint=>Person) public people;
+    uint256 public peopleCount = 0;
+    
+    address owner;
+    
+    modifier onlyOwner(){
+        require(msg.sender==owner);
+        _;
+    }
+    
+    struct Person {
+        uint _id;
+        string _firstname;
+        string _lastname;
+    }
+    
+    constructor() public {
+        owner = msg.sender;
+        
+    }
+    
+    function addPerson(string memory _firstname, string memory _lastname) public onlyOwner {
+        // people.push(Person(_firstname, _lastname));
+        people[peopleCount] = Person(peopleCount, _firstname, _lastname);
+        // peopleCount+=1;
+        incrementCount();
+    }
+    
+    function incrementCount() internal {
+        peopleCount+=1;
+    }
 }
